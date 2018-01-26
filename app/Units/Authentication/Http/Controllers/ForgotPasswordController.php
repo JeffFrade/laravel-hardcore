@@ -1,6 +1,6 @@
 <?php
 
-namespace Confee\Units\Authentication\Http\Controllers\Auth;
+namespace Confee\Units\Authentication\Http\Controllers;
 
 use Confee\Support\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
