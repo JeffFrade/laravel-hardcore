@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+namespace Confee\Unit;
 
-use Tests\TestCase;
+use Confee\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase

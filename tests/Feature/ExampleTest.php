@@ -1,12 +1,15 @@
 <?php
 
-namespace Tests\Feature;
+namespace Confee\Feature;
 
-use Tests\TestCase;
+use Confee\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ExampleTest extends TestCase
 {
+    use WithoutMiddleware;
+
     /**
      * A basic test example.
      *
@@ -14,7 +17,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $response = $this->get('/user');
 
         $response->assertStatus(200);
     }
