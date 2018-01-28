@@ -32,7 +32,7 @@ class Api extends RouteFile
 
     protected function userRoutes()
     {
-        $this->router->get('/user', function (Request $request) {
+        $this->router->get('user', function (Request $request) {
             return $request->user();
         })->middleware('auth:api');
     }

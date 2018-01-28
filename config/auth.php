@@ -42,7 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            //Drivers de Autenticação (Padrão é token)
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
     ],
