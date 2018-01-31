@@ -2,6 +2,7 @@
 
 namespace Confee\Units;
 
+use Confee\Units\Core\Http\Middleware\AlwaysExpectsJson;
 use Illuminate\Foundation\Http\Kernel as Kernel;
 
 class HttpKernel extends Kernel
@@ -19,6 +20,7 @@ class HttpKernel extends Kernel
         \Confee\Units\Core\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Confee\Units\Core\Http\Middleware\TrustProxies::class,
+        AlwaysExpectsJson::class,
     ];
 
     /**
