@@ -2,6 +2,7 @@
 
 namespace Confee\Domains\Users;
 
+use Confee\Domains\Users\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -9,6 +10,8 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+
+    public static $resetPasswordRoute;
 
     /**
      * The attributes that are mass assignable.
@@ -38,5 +41,16 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $link = str_replace('{token}', $token, self::$resetPasswordRoute);
 
+        $this->notify(new ResetPassword($link));
+    }
 }
