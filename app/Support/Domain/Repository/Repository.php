@@ -26,8 +26,29 @@ abstract class Repository
         return $model;
     }
 
-    protected function fillModel(Model $model, array $data)
+    protected function fillModel(Model $model, array $data = [])
     {
         $model->fill($data);
+    }
+
+    public function save(Model $model)
+    {
+        $model->save();
+
+        return $model;
+    }
+
+    public function create(array $data = [])
+    {
+        $model = $this->factory($data);
+
+        return $this->save($model);
+    }
+
+    public function update(Model $model, array $data = [])
+    {
+        $this->fillModel($model, $data);
+
+        return $this->save($model);
     }
 }
